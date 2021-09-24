@@ -85,18 +85,18 @@ class User extends Authenticatable implements MustVerifyEmailContract
         $this->attributes['password'] = $value;
     }
 
-    public function setAvatarAttribute($fileName)
-    {
-        if (!app()->runningInConsole()) {
-            $path = public_path() . "/uploads/images/avatars/$fileName";
-            (Image::make($path))->resize(416, 416)->save();
-            $folder_name = "uploads/images/avatars/" . date("Ym/d", time());
-            $image = file_get_contents($path);
-            app('upyun')->write("$folder_name/$fileName", $image);
-            unlink($path);
-            $this->attributes['avatar'] = config('services.upyun.domain') . "$folder_name/$fileName";
-        }
-    }
+    // public function setAvatarAttribute($fileName)
+    // {
+    //     if (!app()->runningInConsole()) {
+    //         $path = public_path() . "/uploads/images/avatars/$fileName";
+    //         (Image::make($path))->resize(416, 416)->save();
+    //         $folder_name = "uploads/images/avatars/" . date("Ym/d", time());
+    //         $image = file_get_contents($path);
+    //         app('upyun')->write("$folder_name/$fileName", $image);
+    //         unlink($path);
+    //         $this->attributes['avatar'] = config('services.upyun.domain') . "$folder_name/$fileName";
+    //     }
+    // }
 
     public function replyNotify($instance)
     {
