@@ -26,6 +26,7 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
+        dd($this->method());
         $email = 'required|email';
         if (Str::lower($this->method()) == "patch") {
             $email = '';
