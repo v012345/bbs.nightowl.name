@@ -26,7 +26,7 @@ class UsersController extends Controller
     public function update(UserRequest $request, ImageUploadHandler $uploader, User $user)
     {
         $this->authorize('update', $user);
-        $data = $request->all();
+        $data = $request->except("email");
 
         if ($request->avatar) {
             $result = $uploader->save($request->avatar, 'avatars', $user->id, 416, 416);

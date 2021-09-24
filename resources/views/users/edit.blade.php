@@ -27,7 +27,7 @@
                         <div class="form-group">
                             <label for="email-field">邮 箱</label>
                             <input class="form-control" type="text" name="email" id="email-field"
-                                value="{{ old('email', $user->email) }}" />
+                               disabled value="{{ old('email', $user->email) }}" />
                         </div>
                         <div class="form-group">
                             <label for="introduction-field">个人简介</label>
