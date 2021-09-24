@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Model;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Auth;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,5 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(TopicsTableSeeder::class);
         $this->call(RepliesTableSeeder::class);
+        $this->call(LinksTableSeeder::class);
+     
     }
 }
