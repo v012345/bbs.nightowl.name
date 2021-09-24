@@ -22,8 +22,9 @@ class UsersTableSeeder extends Seeder
         $user->name = 'Summer';
         $user->email = 'summer@example.com';
         $user->avatar = 'https://cdn.learnku.com/uploads/images/201710/14/1/ZqM7iaP4CR.png';
-        $user->save();
         $user->assignRole('Founder');
+        $user->save();
+        // $user->assignRole('Founder');
 
 
         // 将 2 号用户指派为『管理员』
