@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class UserRequest extends FormRequest
 {
@@ -17,15 +18,16 @@ class UserRequest extends FormRequest
         return true;
     }
 
+
     /**
      * Get the validation rules that apply to the request.
      *
      * @return array
      */
-    public function rules(Request $request)
+    public function rules()
     {
         $email = 'required|email';
-        if ($request->method() == "patch") {
+        if (Str::lower($this->method()) == "patch") {
             $email = '';
         }
         return [
