@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function(){
+//   dd(Storage::get("/home/meteor/Desktop/bbs.nightowl.name/public/uploads/images/avatars/GuYN9KQTYUQb8Ltz91vqSSHcQcbeKuc1.jpeg"));
+// });;
 Route::get('/', 'PagesController@root')->name('root');
 
 // 用户身份验证相关的路由

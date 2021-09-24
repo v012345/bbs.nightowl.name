@@ -3,6 +3,7 @@
 @section('title', $topic->title)
 @section('description', $topic->excerpt)
 
+
 @section('content')
 
     <div class="row">
