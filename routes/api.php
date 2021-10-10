@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use GuzzleHttp\Client;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('vue/{delay}', function ($delay) {
+
+    sleep(intval($delay));
+    $http = new Client;
+    $res = $client->request('GET', 'https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js');
+    return $res->getBody();
 });
